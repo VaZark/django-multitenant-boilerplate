@@ -42,8 +42,6 @@ TENANT_TYPES = {
             "django.contrib.sessions",
             "django.contrib.messages",
             "django.contrib.staticfiles",
-            # extensions
-            "django_extensions",
             # shared apps here
             "users",
             "owner",
@@ -64,12 +62,17 @@ TENANT_TYPES = {
         "URLCONF": "demande.urls",
     },
 }
+
 TENANT_MODEL = "owner.Tenant"
 TENANT_DOMAIN_MODEL = "owner.Domain" 
+TENANT_COLOR_ADMIN_APPS = False
 
 INSTALLED_APPS = []
 for schema in TENANT_TYPES:
     INSTALLED_APPS += [app for app in TENANT_TYPES[schema]["APPS"] if app not in INSTALLED_APPS]
+
+if DEBUG:
+    INSTALLED_APPS += ["django_extensions"]
 
 DATABASE_ROUTERS = (
     'django_tenants.routers.TenantSyncRouter',
