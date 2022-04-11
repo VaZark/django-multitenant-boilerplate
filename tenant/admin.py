@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from demande.models import DemandePret
+from tenant.models import DemandePret
 
 # Register your models here.
 

@@ -57,9 +57,9 @@ TENANT_TYPES = {
             "django.contrib.messages",
             # crm apps here
             "users",
-            "demande",
+            "tenant",
         ],
-        "URLCONF": "demande.urls",
+        "URLCONF": "tenant.urls",
     },
 }
 
