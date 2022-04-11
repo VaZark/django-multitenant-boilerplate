@@ -13,11 +13,6 @@ class Organisation(models.Model):
         return self.name
 
 
-class Client(AbstractUser):
-    organisation = models.ForeignKey(
-        Organisation, on_delete=models.PROTECT, null=True, blank=True
-    )
-
 
 class Tenant(TenantMixin):
     organisation = models.ForeignKey(Organisation, on_delete=models.PROTECT, null=True, blank=True)
