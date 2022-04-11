@@ -45,6 +45,7 @@ TENANT_TYPES = {
             # extensions
             "django_extensions",
             # shared apps here
+            "users",
             "owner",
         ],
         "URLCONF": "owner.urls",  # url for the public type here
@@ -57,7 +58,8 @@ TENANT_TYPES = {
             "django.contrib.sessions",
             "django.contrib.messages",
             # crm apps here
-            "demande"
+            "users",
+            "demande",
         ],
         "URLCONF": "demande.urls",
     },
@@ -167,3 +169,4 @@ STATIC_ROOT = "static"
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+AUTH_USER_MODEL = "users.CustomUser"

@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
+from users.models import CustomUser
 from .models import Organisation, Tenant
 
 
@@ -23,4 +24,8 @@ class OrganisationAdmin(admin.ModelAdmin):
 
 @admin.register(Tenant)
 class ClientAdmin(admin.ModelAdmin):
+    pass
+
+@admin.register(CustomUser)
+class CustomUserAdmin(UserAdmin):
     pass

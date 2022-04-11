@@ -13,7 +13,6 @@ class Organisation(models.Model):
         return self.name
 
 
-
 class Tenant(TenantMixin):
     organisation = models.ForeignKey(Organisation, on_delete=models.PROTECT, null=True, blank=True)
     tenant_type = models.CharField(max_length=100, choices=get_tenant_type_choices())
