@@ -1,15 +1,22 @@
-from central.models import Client, Domain
+from owner.models import Domain, Tenant
 
 # create your public tenant
-tenant = Client(schema_name='lenbox',
-                name='Schemas Inc.',
-                paid_until='2016-12-05',
-                on_trial=False)
+tenant = Tenant(
+    organisation=None,
+    tenant_type="crm",
+    name="Simplicar",
+    schema_name="simplicar_crm",
+)
+
 tenant.save()
 
 # Add one or more domains for the tenant
-domain = Domain()
-domain.domain = 'localhost' # don't add your port or www here! on a local server you'll want to use localhost here
-domain.tenant = tenant
-domain.is_primary = True
+# don't add your port or www on domain field! on a local server you'll want to use localhost here
+domain = Domain(
+    domain = "simplicar.localhost" ,
+    tenant = tenant,
+    is_primary = True
+)
 domain.save()
+
+# python manage.py create_tenant --domain-domain=floa.localhost --schema_name=floa --name=floa
