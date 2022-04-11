@@ -1,6 +1,7 @@
 .venv/
 .vscode/
 __pycache__/
+local/
 static/
 
 # Dev only
